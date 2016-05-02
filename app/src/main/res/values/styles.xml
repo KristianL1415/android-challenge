@@ -1,0 +1,24 @@
+<resources>
+
+    <style name="None" />
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Widget.AndroidChallenge.Button" parent="None">
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="Widget.AndroidChallenge.EditText" parent="None">
+        <item name="android:height">@dimen/edit_text_height</item>
+        <item name="android:background">#ffffff</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+</resources>
