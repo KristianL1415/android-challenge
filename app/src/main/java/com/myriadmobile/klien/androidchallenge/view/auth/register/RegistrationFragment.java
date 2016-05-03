@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.myriadmobile.klien.androidchallenge.AndroidChallengeApplication;
 import com.myriadmobile.klien.androidchallenge.R;
@@ -70,6 +71,11 @@ public class RegistrationFragment extends BaseFragment implements IRegistrationV
     }
 
     @Override
+    public final void showProgress() {
+        progressDialog.show();
+    }
+
+    @Override
     public final void showProgress(String message) {
         progressDialog.setContent(message);
         progressDialog.show();
@@ -90,6 +96,11 @@ public class RegistrationFragment extends BaseFragment implements IRegistrationV
     public final void clearErrors() {
         etName.setError(null);
         etEmail.setError(null);
+    }
+
+    @Override
+    public final void setNetworkError(String message) {
+        Toast.makeText(AndroidChallengeApplication.get(), message, Toast.LENGTH_SHORT).show();
     }
 
     @OnClick(R.id.btn_register_submit)
