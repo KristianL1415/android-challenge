@@ -8,10 +8,14 @@ import java.util.List;
 
 public class KingdomListResponse extends BaseResponse {
 
-    @SerializedName("data")
+    @SerializedName("")
     public List<Kingdom> kingdomList;
 
     public KingdomListResponse() {
+    }
+
+    public KingdomListResponse(List<Kingdom> kingdomList) {
+        this.kingdomList = kingdomList;
     }
 
     public KingdomListResponse(List<Kingdom> kingdomList, Meta meta) {

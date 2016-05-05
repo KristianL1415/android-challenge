@@ -1,7 +1,10 @@
 package com.myriadmobile.klien.androidchallenge.data;
 
 import com.myriadmobile.klien.androidchallenge.data.model.Auth;
+import com.myriadmobile.klien.androidchallenge.data.model.Kingdom;
 import com.myriadmobile.klien.androidchallenge.data.model.response.KingdomListResponse;
+
+import java.util.List;
 
 import retrofit.Callback;
 import retrofit.http.Field;
@@ -20,5 +23,5 @@ public interface AppService {
                   Callback<Auth> callback);
 
     @GET("/v1/kingdoms")
-    void getKingdomList(Callback<KingdomListResponse> callback);
+    void getKingdomList(Callback<List<Kingdom>> callback);
 }

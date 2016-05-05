@@ -4,6 +4,8 @@ import com.myriadmobile.klien.androidchallenge.data.AppService;
 import com.myriadmobile.klien.androidchallenge.data.model.Kingdom;
 import com.myriadmobile.klien.androidchallenge.data.model.response.KingdomListResponse;
 
+import java.util.List;
+
 import javax.security.auth.callback.Callback;
 
 import retrofit.RetrofitError;
@@ -18,10 +20,10 @@ public class KingdomDomain implements IKingdomDomain {
     }
 
     public final void getKingdomList(final OnKingdomListListener kingdomListListener) {
-        appService.getKingdomList(new retrofit.Callback<KingdomListResponse>() {
+        appService.getKingdomList(new retrofit.Callback<List<Kingdom>>() {
             @Override
-            public void success(KingdomListResponse kingdomListResponse, Response response) {
-                kingdomListListener.onKingdomListSuccess(kingdomListResponse);
+            public void success(List<Kingdom> kingdomList, Response response) {
+                kingdomListListener.onKingdomListSuccess(new KingdomListResponse(kingdomList));
             }
 
             @Override
