@@ -1,5 +1,8 @@
 package com.myriadmobile.klien.androidchallenge.view.auth.register;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +14,7 @@ import android.widget.Toast;
 import com.myriadmobile.klien.androidchallenge.AndroidChallengeApplication;
 import com.myriadmobile.klien.androidchallenge.R;
 import com.myriadmobile.klien.androidchallenge.view.BaseFragment;
+import com.myriadmobile.klien.androidchallenge.view.kingdom.KingdomActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -89,7 +93,16 @@ public class RegistrationFragment extends BaseFragment implements IRegistrationV
 
     @Override
     public final void success() {
-        // new intent
+        SharedPreferences sharedPreferences = AndroidChallengeApplication.get().getSharedPreferences("com.androidchallenge", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("user_email", etEmail.getText().toString());
+        editor.commit();
+
+        if (getActivity() != null) {
+            Intent intent = new Intent(getActivity(), KingdomActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
     }
 
     @Override

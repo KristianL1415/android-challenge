@@ -6,9 +6,6 @@ import com.myriadmobile.klien.androidchallenge.data.model.Auth;
 
 import de.greenrobot.event.EventBus;
 
-/**
- * Created by klien on 4/17/16.
- */
 public class AuthService implements IAuthService, OnAuthListener {
 
     private final IAuthDomain authDomain;
@@ -24,7 +21,6 @@ public class AuthService implements IAuthService, OnAuthListener {
 
     @Override
     public final void onAuthSuccess(Auth auth) {
-        // store email
         EventBus.getDefault().post(auth);
     }
 

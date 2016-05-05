@@ -1,14 +1,12 @@
 package com.myriadmobile.klien.androidchallenge.view.auth.register;
 
+import android.app.Fragment;
 import android.text.TextUtils;
 
 import com.myriadmobile.klien.androidchallenge.view.BasePresenter;
 import com.myriadmobile.klien.androidchallenge.data.model.Auth;
 import com.myriadmobile.klien.androidchallenge.data.service.auth.IAuthService;
 
-/**
- * Created by klien on 4/17/16.
- */
 public class RegisterPresenter extends BasePresenter implements IRegisterPresenter {
 
     private final IRegistrationView registrationView;

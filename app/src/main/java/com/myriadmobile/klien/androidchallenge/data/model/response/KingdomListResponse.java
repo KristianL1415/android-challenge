@@ -6,18 +6,15 @@ import com.myriadmobile.klien.androidchallenge.data.model.Meta;
 
 import java.util.List;
 
-/**
- * Created by klien on 5/2/16.
- */
-public class KingdomListReponse extends BaseResponse {
+public class KingdomListResponse extends BaseResponse {
 
     @SerializedName("data")
     public List<Kingdom> kingdomList;
 
-    public KingdomListReponse() {
+    public KingdomListResponse() {
     }
 
-    public KingdomListReponse(List<Kingdom> kingdomList, Meta meta) {
+    public KingdomListResponse(List<Kingdom> kingdomList, Meta meta) {
         this.kingdomList = kingdomList;
         this.meta = meta;
     }

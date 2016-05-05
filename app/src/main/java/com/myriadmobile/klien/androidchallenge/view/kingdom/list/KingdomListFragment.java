@@ -1,7 +1,6 @@
 package com.myriadmobile.klien.androidchallenge.view.kingdom.list;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,7 +10,7 @@ import android.widget.Toast;
 
 import com.myriadmobile.klien.androidchallenge.AndroidChallengeApplication;
 import com.myriadmobile.klien.androidchallenge.R;
-import com.myriadmobile.klien.androidchallenge.data.model.response.KingdomListReponse;
+import com.myriadmobile.klien.androidchallenge.data.model.response.KingdomListResponse;
 import com.myriadmobile.klien.androidchallenge.view.BaseFragment;
 
 import butterknife.Bind;
@@ -66,8 +65,8 @@ public class KingdomListFragment extends BaseFragment implements IKingdomListVie
     }
 
     @Override
-    public final void appendKingdoms(KingdomListReponse kingdomListReponse) {
-        kingdomListAdapter.append(kingdomListReponse.kingdomList);
+    public final void appendKingdoms(KingdomListResponse kingdomListResponse) {
+        kingdomListAdapter.append(kingdomListResponse.kingdomList);
     }
 
     @Override

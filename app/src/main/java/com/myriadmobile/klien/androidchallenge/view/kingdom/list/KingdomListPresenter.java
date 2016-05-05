@@ -1,6 +1,7 @@
 package com.myriadmobile.klien.androidchallenge.view.kingdom.list;
 
 import com.myriadmobile.klien.androidchallenge.data.model.Kingdom;
+import com.myriadmobile.klien.androidchallenge.data.model.response.KingdomListResponse;
 import com.myriadmobile.klien.androidchallenge.data.service.kingdom.IKingdomService;
 import com.myriadmobile.klien.androidchallenge.view.BasePresenter;
 
@@ -18,10 +19,21 @@ public class KingdomListPresenter extends BasePresenter implements IKingdomListP
     }
 
     public void getKingdoms() {
-
+        kingdomService.getKingdomList();
+        kingdomListView.showProgress();
     }
 
     public void onKingdomClicked(Kingdom kingdom) {
 
+    }
+
+    public void onEventMainThread(KingdomListResponse kingdomListResponse) {
+        kingdomListView.hideProgress();
+        kingdomListView.appendKingdoms(kingdomListResponse);
+    }
+
+    public void onEventMainThread(Kingdom.Error error) {
+        kingdomListView.hideProgress();
+        kingdomListView.setNetworkError(error.message);
     }
 }
