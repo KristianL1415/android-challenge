@@ -5,10 +5,12 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.myriadmobile.klien.androidchallenge.R;
 import com.myriadmobile.klien.androidchallenge.data.model.Kingdom;
+import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -21,13 +23,17 @@ public class KingdomCard extends FrameLayout {
     private final Context context;
     private String name;
     private String image;
+    private Picasso picasso;
 
+    @Bind(R.id.iv_kingdom_image)
+    ImageView ivImage;
     @Bind(R.id.tv_kingdom_name)
     TextView kingdomName;
 
     public KingdomCard(Context context) {
         super(context);
         this.context = context;
+        this.picasso = Picasso.with(context);
         init();
     }
 
@@ -57,6 +63,9 @@ public class KingdomCard extends FrameLayout {
     }
 
     private void redraw() {
+        picasso.load(image)
+                .fit().centerCrop()
+                .into(ivImage);
         kingdomName.setText(name);
 
         invalidate();

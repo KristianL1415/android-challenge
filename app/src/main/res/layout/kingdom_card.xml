@@ -9,16 +9,23 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="4dp">
 
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/iv_kingdom_image"/>
+
         <TextView
             android:id="@+id/tv_kingdom_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp" />
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_margin="8dp"
+            android:text="Stuff"/>
 
     </LinearLayout>
 
