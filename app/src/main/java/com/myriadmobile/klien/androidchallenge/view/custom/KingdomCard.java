@@ -1,6 +1,7 @@
 package com.myriadmobile.klien.androidchallenge.view.custom;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,10 +64,12 @@ public class KingdomCard extends FrameLayout {
     }
 
     private void redraw() {
-        picasso.load(image)
-                .fit().centerCrop()
-                .into(ivImage);
-        kingdomName.setText(name);
+        if (!TextUtils.isEmpty(image)) {
+            picasso.load(image)
+                    .fit().centerCrop()
+                    .into(ivImage);
+            kingdomName.setText(name);
+        }
 
         invalidate();
         requestLayout();

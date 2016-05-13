@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,11 @@ public class RegistrationFragment extends BaseFragment implements IRegistrationV
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         registerPresenter = new RegisterPresenter(this, AndroidChallengeApplication.getAuthService());
+        SharedPreferences sharedPreferences = AndroidChallengeApplication.get().getSharedPreferences("com.androidchallenge", Context.MODE_PRIVATE);
+        String storedEmail = sharedPreferences.getString("user_email", null);
+        if (!TextUtils.isEmpty(storedEmail)) {
+            startKingdomActivity();
+        }
     }
 
     @Override
@@ -98,6 +104,10 @@ public class RegistrationFragment extends BaseFragment implements IRegistrationV
         editor.putString("user_email", etEmail.getText().toString());
         editor.commit();
 
+        startKingdomActivity();
+    }
+
+    private void startKingdomActivity() {
         if (getActivity() != null) {
             Intent intent = new Intent(getActivity(), KingdomActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
